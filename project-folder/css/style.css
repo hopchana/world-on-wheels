@@ -1,0 +1,1334 @@
+/*===== VARIABLES CSS =====*/
+:root {
+    --body-color: #e7e5dd;
+    /* color for lighter text elements (non-hovered nav, footer options, heart stroke) */
+    --light: #999990;
+    /* color for darker text elements (footer columns headings, hovered footer options, heart, border) */
+    --dark: #7c7c75;
+    --text-color: #56514B;
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+    --body-color: #302e28;
+    /* color for darker text elements (non-hovered nav, footer options, heart stroke) */
+    --light: #999990;
+    /* color for lighter text elements (footer columns headings, hovered footer options, heart, border) */
+    --dark: #bdbbad;
+    --text-color: #beb8b1;
+}
+
+
+* {
+    box-sizing: border-box; /*include the padding and border in an element's total width and height*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--body-color); /* Set the background color using var(--body-color), so it will change with theme change */
+    margin: 0 auto; /* Center the body horizontally */
+    max-width: 98%;
+    color: var(--text-color); /* Set the text color using var(--text-color), so it will change with theme change */
+}
+
+/* Targets images inside elements with the id "above-the-fold", the element with the id "all-routes-btn",
+elements with the class "more-info-btn", the input elements with the id "submit-btn" and "reset-btn", i elements,
+anchor elements inside nav elements, body element */
+#above-the-fold img, #all-routes-btn, .more-info-btn, input#submit-btn, input#reset-btn, i, nav a, body, #add-marker-btn,
+#remove-marker-btn, #login-btn, #signup-btn,  #new-post-btn, #yes-btn, #comment-submit-btn {
+    transition: 0.4s; /* Adds a smooth transition effect for all property changes over 0.4 seconds */
+}
+
+main {
+    margin: 8px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.04rem;
+}
+
+h2 {
+    font-size: 26px;
+    letter-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+}
+
+section {
+    font-size: 16px;
+}
+
+.center {
+    text-align: center;
+}
+
+.text-wrap {
+    overflow-wrap: anywhere; /* Allows long words to be broken and wrap onto the next line */
+    white-space: normal; /* Ensures that text wraps normally */
+}
+
+.accordion {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: var(--dark) solid 2px;;
+    /*margin: auto auto 20px;*/
+
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    max-width: 800px;
+}
+
+div.panel {
+    width: 100%;
+    max-width: 800px;
+
+    margin-bottom: 20px;
+
+}
+
+.accordion:hover {
+    box-shadow: var(--light) 0 6px 16px;
+}
+.accordion-active {
+    box-shadow: var(--light) 0 1px 5px;
+    margin-bottom: 10px;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: var(--text-color);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion-active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    /*background-color: white;*/
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+/*========== mobile portrait ==========*/
+
+/*========== NAVIGATION ==========*/
+
+/* Targets nav elements */
+nav {
+    position: fixed;
+    z-index: 1;
+    top: 0; /* Positions the nav at the top of the viewport */
+    overflow-x: hidden; /* Hides horizontal overflow */
+    transition: 0.5s; /* Adds transition effect for all property changes*/
+    padding-top: 60px;
+    right: 0; /* Positions the nav at the right of the viewport */
+    margin-bottom: 1rem;
+    /* Sets background color using var(--body-color), so it will change with theme change */
+    background: var(--body-color);
+}
+
+
+
+i, #my-account-button {
+    padding: 0;
+    padding-left: 11%;
+    color: var(--light); /* Sets text color using var(--light), so it will change with theme change */
+    font-size: 40px;
+    cursor: pointer; /* Changes cursor to pointer */
+
+}
+
+.active, #my-account-button.active {
+    font-weight: normal;
+    color: var(--text-color);/* Sets text color using var(--text-color), so it will change with theme change */
+    text-decoration: none; /* Ensures no underline is applied */
+}
+
+.active{
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 5px; /* Sets offset for underline to 5px */
+}
+
+
+nav a {
+    font-size: 20px;
+    color: var(--light); /* Sets text color using var(--light), so it will change with theme change */
+    letter-spacing: 3px;
+    /* Sets padding for the right, top and bottom to 0.4em, and for the left side of the element to 12%
+    of the width of the containing block */
+    padding: 0.4em 0.4em 0.4em 12%;
+    text-decoration: none; /* Removes underline from links */
+    display: block;
+}
+
+/* Targets anchor elements inside nav elements on hover */
+nav a:hover {
+    /* Changes text color on hover using var(--text-color), so it will change with theme change */
+    color: var(--text-color);
+    transition: 0.3s; /* Adds transition effect for all property changes over 0.3 seconds */
+}
+
+/* Targets elements with the class "close-nav-btn" inside nav elements */
+nav .close-nav-btn {
+    padding: 0;
+    margin: 0 8px; /* Removes margin on the top and bottom, sets the right and left margins to 8 pixels */
+    position: absolute;
+    /* Positions the element at the top right corner of its containing block */
+    top: 0;
+    right: 0;
+    font-size: 45px;
+}
+
+/* Targets elements with the class "close-nav-btn" inside nav elements on hover */
+nav .close-nav-btn:hover {
+    background: none;
+}
+
+/* Targets elements with the id "open-nav" */
+#open-nav {
+    margin: 8px;
+    font-size: 30px;
+    cursor: pointer; /* Changes cursor to pointer */
+}
+
+/* Targets elements with the id "nav-btn" */
+#nav-btn {
+    text-align: right;
+}
+
+/* Targets i elements on hover */
+i:hover, #my-account-button:hover {
+    color: var(--text-color); /* Changes text color on hover using variable, so it will change with theme change */
+}
+
+/*========== WRITE FOR US SECTION ==========*/
+
+/* Style divs with class "textarea-container", which contain counter and textarea */
+.textarea-container {
+    position: relative; /*set position to relative, allowing absolute positioning of counter*/
+    width: fit-content; /* Sets the width of the container to the same that textarea */
+}
+
+.textarea, .comment-box textarea {
+    /* Set the text color using a var(--text-color), so it would be changed with theme of page */
+    color: var(--text-color);
+    /* Set the background color using a var(--body-color), so it would be changed with theme of page */
+    background: var(--body-color);
+    border: rgb(118, 118, 118) solid 1px;
+    padding: 5px; /* Add 5px padding around the textarea for aesthetics */
+    /* Set the minimum height of the textarea to 31px, so counter will not go out of textarea bounds*/
+    min-height: 31px;
+    /* Set the minimum width of the textarea to 88 px, so counter will not go out of textarea bounds */
+    min-width: 88px;
+}
+
+/* Targets "long-desc" textarea and the inputs with the id "submit-btn" and "reset-btn"*/
+#long-desc, input#submit-btn, input#reset-btn {
+    max-width: 750px;
+}
+
+/* Targets the "short-desc" textarea */
+#short-desc {
+    max-width: 600px;
+}
+
+/* positioning and styling for "counter"*/
+.counter {
+    position: absolute; /* Set the position to absolute, to position it in the textarea */
+    color: gray;
+    padding: 5px;
+    bottom: 5px;
+    right: 10px;
+}
+
+/*  Styles front and back views of cards, all img elements,
+the inputs with the id "submit-btn" and "reset-btn", "long-desc" and "short-desc" textareas */
+.card .view, input#submit-btn, input#reset-btn, #long-desc, #short-desc, img, #comment-submit-btn {
+    width: 100%;
+}
+
+/* Target element with class "write-for-us-container" and applies grid layout styling */
+.write-for-us-container{
+
+    display: grid;
+    /* Define the grid columns. The first column's width will be based on its content,
+    and the second column will take up the remaining space */
+    grid-template-columns: max-content auto;
+    row-gap: 3px;
+    column-gap: 8px;
+}
+
+/* Target the inputs in section with id=write-for-us */
+#write-for-us input {
+    max-width: 270px;
+    padding-left: 3px;
+}
+
+#marker-container input[type=number], .write-for-us-container input[type=text] {
+    width: 100%;
+}
+
+/* Target the text inputs in section with id=write-for-us */
+#write-for-us input[type=text] {
+    min-width: 90px;
+}
+
+/* Target input with id=distance */
+input#distance {
+    max-width: 120px;
+}
+
+/* Targets input and select elements in section with the id="write-for-us" */
+#write-for-us input, #write-for-us select {
+    /* Set the text color using var(--text-color), so it would be changed with theme of page */
+    color: var(--text-color);
+    /* Sets the background color using var(--body-color), so it would be changed with theme of page */
+    background: var(--body-color);
+}
+
+/* Targets elements with the class "textarea"; input and select elements in section with the id="write-for-us" */
+.textarea, #write-for-us input, #write-for-us select{
+    /* Set the border color to rgb(118, 118, 118), width to 1px and style to solid*/
+    border: rgb(118, 118, 118) solid 1px;
+}
+
+#write-for-us input[type=file] {
+    border: none;
+    max-width: 400px;
+    width: 100%;
+    padding-left: 0;
+}
+
+
+/* Targets the inputs with the id "submit-btn" and "reset-btn" */
+input#submit-btn, input#reset-btn, #add-marker-btn, #remove-marker-btn, #comment-submit-btn {
+
+    background: none;
+    /* Set the border line-color to var(--text-color), line-width to 1px and line-style to solid*/
+    border: 1px solid var(--text-color);
+    color: var(--text-color); /* Sets the text color using var(--text-color), so it will change with theme change */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-size: 16px;
+    letter-spacing: 3px;
+    height: 40px;
+    margin-top: 1rem;
+}
+
+#remove-marker-btn, #add-marker-btn {
+    height: 30px;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 160px;
+}
+
+#add-marker-btn{
+    height: 35px;
+    max-width: 250px;
+}
+
+/*========== MORE INFO PAGE ==========*/
+
+/* Targets images within the more-info section, front and back views of cards,
+img elements within elements with the class "article-section", nav elements */
+.more-info-images img, .card .view, .article-section img, nav {
+    height: 100%;
+}
+
+/* Grid layout for the more-info-images container */
+.more-info-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    grid-template-rows: 1fr 1fr 1fr; /* Three rows with equal height */
+    gap: 10px; /* 10px gap between grid items */
+}
+
+#map {
+    height: 350px;
+}
+
+/*========== SIGN UP / LOG IN PAGE ==========*/
+
+.capsule {
+    border: var(--dark) solid 2px;;
+    box-shadow: var(--light) 0 1px 5px;
+    margin: 70px auto 150px;
+    overflow: auto;
+    padding: 25px;
+}
+
+.wrapper {
+    max-width: 500px;
+    width: 100%;
+}
+
+.wrapper .title {
+    height: 50px;
+    color: var(--text-color);
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 35px;
+}
+
+.field-name {
+    color: var(--text-color);
+    font-size: 25px;
+    padding-top: 15px;
+
+}
+
+.wrapper form {
+    padding: 10px 35px;
+}
+
+.wrapper form .row {
+    height: 60px;
+    margin-top: 15px;
+}
+
+.wrapper form .row input {
+    height: 100%;
+    width: 100%;
+    padding-left: 30px;
+    font-size: 18px;
+    color: var(--text-color);
+    background: var(--body-color);
+    border: var(--dark) solid 1px;;
+}
+
+.wrapper form .signup-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+.wrapper form .signup-link a {
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+/*========== POPUP ==========*/
+
+#close-btn {
+    cursor: pointer;
+}
+
+#popup h2 {
+    font-size: larger;
+    letter-spacing: normal;
+}
+
+#popup {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+    background: var(--body-color);
+    border: var(--dark) solid 2px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.confirm {
+    padding: 1.5% 2% 20px;
+}
+
+.alert {
+    padding: 1.5% 2% 5px;
+}
+
+
+/*========== ALL ROUTES / FAVOURITE ROUTES PAGE ==========*/
+
+.article-section {
+    display: grid;
+    grid-template-columns: 1fr; /* Defines one column that takes up the entire width of the container */
+    /* Defines three rows, with the first two taking up equal portions of the height and the third row adjusting to content */
+    grid-template-rows: 1fr 1fr auto;
+    /* set the top, right and left margins to automatically adjust based on the available space; bottom margin to 20px*/
+    margin: auto auto 20px;
+    border: var(--dark) solid 2px; /* Sets the border color to var(--dark) and style to solid, width to 2px */
+    padding: 20px;
+    overflow: auto; /* Allows content overflow with a scrollbar when necessary */
+}
+
+.article-section img {
+
+    grid-row: 1/3; /* Spans the image across the first and second rows of the grid */
+}
+
+.article-section:hover {
+    /* Adds a box shadow with var(--light) color, no horizontal offset, 6px vertical offset of the shadow,
+    and 16px blur radius */
+    box-shadow: var(--light) 0 6px 16px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 1.4em;
+    letter-spacing: 0.05em;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between; /* Aligns items along the main axis (horizontally) */
+    align-items: center; /* Aligns items along the cross axis (vertically) */
+}
+
+.section-content {
+    margin-top: 0.4rem;
+    display: block;
+}
+
+/* Targets elements with the class "more-info-btn" */
+.more-info-btn {
+    margin-bottom: 0;
+    background: none;
+    border: 1px solid var(--text-color); /* Sets border with var(--text-color) color, solid style and 1px width */
+    color: var(--text-color); /* Sets text color using var(--text-color), so it would be changed with theme of page */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 16px;
+    letter-spacing: 3px;
+    height: 30px;
+    margin-top: 0.7em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* Targets elements with the class "more-info-btn", elements with id "all-routes-btn", "submit-btn" and "reset-btn" on hover*/
+.more-info-btn:hover, #all-routes-btn:hover, #submit-btn:hover, #reset-btn:hover, #add-marker-btn:hover,
+#remove-marker-btn:hover, #login-btn:hover , #signup-btn:hover, #new-post-btn:hover, #yes-btn:hover, #comment-submit-btn:hover {
+    transform: scale(0.95); /* Scales the button down to 95% on hover */
+}
+#comment-submit-btn {
+    height: 30px;
+    margin-top: 0;
+}
+
+/* styling text, that will be displayed in Favourite routes, if user haven't liked anything*/
+#nothing-is-here {
+    margin: 5%;
+    font-size: 20px;
+}
+
+.like-btn {
+    border: none; /* Removes borders */
+    background-color: transparent;
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    padding: 0;
+}
+
+/* Targets svg elements inside elements with the class "like-btn" */
+.like-btn svg {
+    height: 2rem;
+    width: 2rem;
+    stroke: var(--light); /* Sets the stroke color using var(--light), so it will change with theme change */
+    stroke-width: 2px;
+}
+
+/* Targets svg elements inside elements with the class "like-btn" on hover and changes the stroke color */
+.like-btn svg:hover {
+    stroke: var(--dark); /* Changes the stroke color on hover using var(--dark), so it will change with theme change */
+}
+
+/* Targets svg elements inside elements with the class "liked" on hover and changes the stroke color */
+.liked svg:hover {
+    /* Changes the stroke color on hover using var(--text-color), so it will change with theme change */
+    stroke: var(--text-color);
+}
+
+/* Targets svg elements inside elements with the class "liked" */
+.liked svg {
+    stroke: var(--text-color); /* Sets the stroke color using a variable, so it will change with theme change */
+    fill: var(--text-color); /* Sets the fill color using a variable, so it will change with theme change */
+}
+
+/*========== MAIN PAGE ==========*/
+
+/* Targets the element with the id "above-the-fold" */
+#above-the-fold {
+    display: grid; /* Set the display property to grid */
+    grid-template-columns: 1fr 1fr; /* Define two equal columns */
+    grid-template-rows: 1fr 1fr; /* Define two equal rows */
+    gap: 0.5em; /* Set the gap between grid to 0.5em */
+}
+
+#above-the-fold span {
+    align-self: center; /* Aligns content vertically to the center */
+    grid-column: 2; /* Places the span in the second column of the grid */
+}
+
+#img1-top, #img1-bottom {
+    grid-column: 1; /* Places the image in the first column of the grid */
+}
+
+#img2 {
+    grid-column: 2; /* Places the image in the second column of the grid */
+}
+
+/* Hide elements with the id "img3-top", "img3-bottom", "img4-top", and "img4-bottom" */
+#img3-top, #img3-bottom, #img4-top, #img4-bottom {
+    display: none;
+}
+
+/* Targets the element with the id "all-routes-btn" */
+#all-routes-btn, #login-btn, #signup-btn, #new-post-btn, #yes-btn {
+    background: none;
+    border: 1px solid var(--text-color); /* Sets the border with var(--text-color) color and solid style and 1px width */
+    color: var(--text-color); /* Sets the text color using var(--text-color), so it will change with theme change */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-size: 16px;
+    letter-spacing: 3px;
+    height: 40px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 60%;
+}
+
+#new-post-btn {
+    max-width: 992px;
+    width: 98.5%;
+}
+
+#login-btn, #signup-btn, #yes-btn {
+    width: 100%;
+}
+
+/* Target section with id="second-box" */
+#second-box {
+    align-items: center; /* Align the items vertically to the center */
+    display: grid; /* Set the display property to grid, making the element a grid container */
+    gap: 20px;
+}
+
+/*========== WEATHER SECTION ==========*/
+
+/*style for h2 "Current weather in * "*/
+#location {
+    margin-top: 20px;
+}
+
+/* Style for weather-info div */
+#weather-info {
+    display: flex; /* Set flexible layout of #weather-info's children */
+    align-items: center; /* Aligns the children vertically to the center */
+    justify-content: center; /* Aligns the children horizontally to the center */
+}
+
+/*weather icon style*/
+#icon {
+    width: 15%;
+    min-width: 50px;
+    max-width: 100px;
+}
+
+/* Style for temperature h2 */
+#temperature {
+    margin: 0; /* removing default h2 margin */
+    /* Set the font weight of the text to lighter than normal, so it wouldn't visually compete with #location h2*/
+    font-weight: lighter;
+}
+
+/*========== COMMENTS ==========*/
+
+.comment-box, .post-comment .list{
+    box-shadow: var(--light) 0 2px 6px;
+
+}
+
+.post-comment .list {
+    margin-bottom: 12px;
+}
+
+.post-comment .list .user {
+    padding: 8px 15px;
+}
+
+.comment-session .name {
+    font-weight: bold;
+}
+
+.post-comment .list .date {
+    font-size: 12px;
+}
+.user-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-comment .comment-post {
+    padding: 0 0 15px 15px;
+}
+
+.comment-box {
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.comment-box textarea {
+    width: -webkit-fill-available;;
+    margin: 10px 0;
+    padding: 10px;
+    resize: inherit;
+}
+
+
+/*========== FOOTER ==========*/
+
+footer {
+    margin-top: 4em;
+    padding-top: 1rem;
+    /* Set the top border ith var(--light) color and solid style and 1px width*/
+    border-top: var(--light) 1px solid;
+}
+
+/* Targets div elements inside elements with the class "footer-columns" */
+.footer-columns>div {
+    display: flex;
+    gap: 2rem;/* Sets the gap between flex items to 2em*/
+}
+
+/* Targets ul elements inside elements with the class "footer-columns" */
+.footer-columns ul {
+    list-style-type: none; /* Removes default list styling */
+    font-weight: 600;
+}
+
+/* Targets anchor elements inside ul elements inside elements with the class "footer-columns"*/
+.footer-columns ul a {
+    color: var(--light); /* Sets the text color using var(--light), so it will change with theme change */
+    text-decoration: none; /* Removes underline from links */
+    transition: 0.2s; /* Adds 0.2s transition effect for color changes on hover */
+}
+
+/* Targets li elements inside ul elements inside elements with the class "footer-columns" */
+.footer-columns ul li {
+    padding-bottom: 1rem;
+}
+
+/* Targets elements with the class "footer-bottom", h3 elements inside elements with the class "footer-columns",
+ anchor elements inside ul elements inside elements with the class "footer-columns" on hover*/
+.footer-bottom, .footer-columns h3, .footer-columns ul a:hover {
+    color: var(--dark); /* Changes text color on hover using var(--dark), so it will change with theme change */
+}
+
+.footer-columns h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    padding: 1.5rem 1rem 2.5rem; /* Sets padding on top to 1.5rem, bottom to 2.5rem, right and left to 1rem */
+}
+
+.footer-columns {
+    width: 80%;
+    /* Center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Define two equal columns */
+    grid-template-rows: 1fr 1fr; /* Define two equal rows */
+    gap: 1em;
+}
+
+/*========== SOURCES PAGE ==========*/
+
+/* Targets anchor elements inside elements with the id "sources" */
+#sources a {
+    color: var(--text-color); /* Sets the text color using var(--text-color), so it will change with theme change */
+}
+
+/*========== MY ACCOUNT PAGE ==========*/
+
+
+
+#menu {
+    padding-bottom: 120px;
+}
+
+
+/*nawigacja 2*/
+
+#nav a, #logout a {
+    float: left;
+    width: 99%;
+    padding: 1.5% 0;
+    display:block;
+    text-align:center;
+    text-decoration: none;
+    background: var(--text-color);
+    color: var(--body-color);
+    border: 1px solid var(--body-color);
+}
+
+#nav a:hover, #logout a:hover {
+
+    background: var(--light);
+
+}
+
+
+/*========== MEMORY CARD GAME ==========*/
+
+/* Styles for the memory card game container */
+#memory-card-game {
+    display: flex; /* Display the container as a flexbox */
+    align-items: center; /* Align items vertically at the center */
+    justify-content: center; /* Align items horizontally at the center */
+}
+
+.game-wrapper {
+    padding: 25px;
+}
+
+/* Styles for the cards container and card elements */
+#cards, .card, .view {
+    display: flex;
+    align-items: center; /* Align items vertically at the center */
+    justify-content: center; /* Align items horizontally at the center */
+}
+
+/* Styles for the cards container */
+#cards {
+    height: 300px;
+    width: 300px;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-between; /* Distribute space between cards */
+}
+
+/* Styles for individual cards */
+#cards .card {
+    cursor: pointer;
+    list-style: none; /* Remove bullet points */
+    user-select: none; /* Disable selection of card content */
+    position: relative;
+    perspective: 1000px; /* Set perspective to 1000px for 3D effect */
+    transform-style: preserve-3d; /* Preserve 3D transformations */
+    height: calc(100% / 4 - 10px); /* Calculate height of each card */
+    width: calc(100% / 4 - 10px); /* Calculate width of each card */
+}
+
+/* Animation for shaking effect */
+.card.shake {
+    animation: shake 0.35s ease-in-out; /* Apply 0.35 ease-in-out shake animation */
+}
+
+/* Keyframes for shake animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0); /* Initial and final positions */
+    }
+    20% {
+        transform: translateX(-13px); /* set 20% position to -13px */
+    }
+    40% {
+        transform: translateX(13px); /* set 40% position 13px */
+    }
+    60% {
+        transform: translateX(-8px); /* set 60% position -8px */
+    }
+    80% {
+        transform: translateX(8px); /* set 80% position to 8px */
+    }
+}
+
+/* Styles for the front and back views of cards */
+.card .view {
+    position: absolute;
+    border-radius: 7px;
+    pointer-events: none; /* Disable pointer events */
+    backface-visibility: hidden; /* Hide backface of the view */
+    transition: transform 0.25s linear; /* Apply 0.25s linear transition effect */
+}
+
+.card .front-view {
+    background: #beb8b1; /* background color for the front view */
+}
+
+.card .back-view {
+    background: #fcfbf9; /* background color for the back view */
+}
+
+/* Style for images inside card views */
+.card .front-view img,
+.card .back-view img {
+    width: 85%;
+    height: 85%;
+}
+
+/* Initial rotation for back view */
+.card .back-view {
+    transform: rotateY(-180deg); /* Rotate back view */
+}
+
+/* Rotation for flipped card's back view */
+.card.flip .back-view {
+    transform: rotateY(0); /* Rotate back view */
+}
+
+/* Rotation for flipped card's front view */
+.card.flip .front-view {
+    transform: rotateY(180deg); /* Rotate front view */
+}
+
+/* CSS class that sets the opacity of an element to 0 */
+.invisible {
+    opacity: 0; /* Set the opacity to 0 to make the element fully transparent */
+    transition: opacity 0.5s ease-in-out; /* Animate the opacity change over 0.5 seconds */
+}
+
+/* CSS class that sets the visibility of an element to hidden with the id "best-score" */
+#best-score {
+    visibility: hidden;
+}
+
+/* Media queries for responsive design */
+
+/*========== tiny mobile ==========*/
+
+/* Media query for screens with a maximum width of 245px */
+@media screen and (max-width: 245px) {
+
+    #cards .card {
+        height: calc(100% / 8 - 5px); /* Adjust height of each card */
+        width: calc(100% / 2 - 5px); /* Adjust width of each card */
+    }
+
+    #cards {
+        height: 480px;
+        width: 120px;
+    }
+
+    /* Hides images inside elements with the id "above-the-fold" */
+    #above-the-fold img {
+        display: none;
+    }
+
+    /* Changes the display property of elements with the id "above-the-fold" to block */
+    #above-the-fold {
+        display: block;
+    }
+
+    #all-routes-btn, #login-btn, #signup-btn, #yes-btn, #comment-submit-btn {
+        width: 100%;
+        height: 30px;
+        letter-spacing: 0;
+    }
+
+    .more-info h1, h1, h2 {
+        font-size: 22px;
+        letter-spacing: 0;
+    }
+
+    .more-info-images {
+        /* Sets grid template columns and rows */
+        grid-template-columns: 1fr; /* one column */
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; /* six equal rows */
+    }
+
+    .footer-columns {
+        width: 90%;
+        /* Sets grid template columns and rows */
+        grid-template-columns: 1fr; /* one column */
+        grid-template-rows: 1fr 1fr 1fr; /* three equal rows */
+    }
+
+    .more-info-btn {
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+    }
+}
+
+/*small mobile*/
+/* Media query for screens with a minimum width of 245px and maximum width of 320px */
+@media screen and (min-width: 245px) and (max-width: 320px) {
+
+    #cards .card {
+        height: calc(100% / 4 - 5px); /* Adjust height of each card */
+        width: calc(100% / 4 - 5px); /* Adjust width of each card */
+    }
+    #cards {
+        height: 225px;
+        width: 225px;
+    }
+
+    #all-routes-btn {
+        width: 75%;
+        height: 30px;
+    }
+
+    .more-info h1, h1 {
+        font-size: 30px;
+        letter-spacing: 0;
+    }
+
+    .more-info-btn {
+        padding-left: 0.35em;
+        padding-right: 0.35em;
+    }
+
+    #above-the-fold #img2 {
+        display: none;
+    }
+
+    #above-the-fold span {
+        grid-row: 1/3; /* Spans the span across the first and second rows of the grid */
+    }
+
+}
+
+/*mobile: landscape*/
+/* Media query for screens with a minimum width of 480px */
+@media screen and (min-width: 480px) {
+
+    #cards {
+        height: 400px;
+        width: 400px;
+    }
+
+    /* Hides elements with the id "open-nav" and elements with the class "close-nav-btn" */
+    #open-nav, nav .close-nav-btn{
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        position: relative;
+        padding: 0;
+        justify-content: right;/* Aligns items horizontally */
+        background: none;
+    }
+
+
+
+    i, #my-account-button {
+        font-size: 30px;
+        /* Aligns the element to the vertical center */
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 0;
+    }
+
+    #my-account-button {
+        padding-right: 0.3em;
+    }
+
+    /* Targets anchor elements inside nav elements */
+    nav a {
+        /* Sets padding on top and bottom to 0.3rem, right and left to 3.5% of its containing block */
+        padding: 0.3em 3.5% 0.3em;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+
+    #img3-top, #img3-bottom {
+        display: grid;
+    }
+
+    #above-the-fold{
+        grid-template-columns: 1fr 1fr 1fr; /* Sets grid template columns to three equal columns */
+        gap: 0.5em /* Sets gap between grid items to 0.5em */
+    }
+
+    #nothing-is-here {
+        font-size: 25px;
+    }
+
+    #all-routes-btn {
+        width: 45%;
+    }
+
+    main {
+        max-width: 95%;
+        margin: auto; /* Centers horizontally */
+    }
+
+    .more-info h1, h1 {
+        font-size: 45px;
+        margin-bottom: 0.4em;
+        letter-spacing: 0.5rem;
+    }
+
+    .more-info-images {
+        /* Sets grid template columns and rows */
+        grid-template-columns: 1fr 1fr 1fr; /* three equal columns*/
+        grid-template-rows: 1fr 1fr; /* two equal rows*/
+    }
+
+    h2 {
+        font-size: 35px;
+        letter-spacing: 0.1rem;
+    }
+
+    .footer-columns {
+        width: 80%;
+        /* Centers horizontally */
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Defines three equal columns */
+        grid-template-rows: 1fr; /* Defines one row */
+        gap: 2rem; /* Sets 2rem gap between grid items */
+    }
+
+    .more-info-btn {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+
+    #menu {
+        padding-bottom: 60px;
+    }
+
+    #nav a, #logout a {
+        width: 49%;
+        float: left;
+        padding: 1% 0;
+    }
+
+}
+
+/*tablet: portrait*/
+/* Media query for screens with a minimum width of 768px */
+@media screen and (min-width: 768px) {
+
+    #map {
+        height: 500px;
+    }
+
+    #cards {
+        height: 450px; /* sets height of the cards container to 450px */
+        width: 450px; /* sets width of the cards container to 450px */
+    }
+
+    /* Targets elements with the id "img4-top" and "img4-bottom" */
+    #img4-top, #img4-bottom {
+        display: grid; /* Sets display property to grid */
+        grid-column: 4; /* Places the elements in the fourth column of the grid */
+    }
+
+    #above-the-fold{
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Sets grid template columns to four equal columns */
+        gap: 0.7em;
+    }
+
+    /* Targets images inside elements with the id "above-the-fold" on hover */
+    #above-the-fold img:hover {
+        transform: scale(1.1);
+    }
+
+    i, #my-account-button {
+        font-size: 40px;
+        padding: 0;
+    }
+
+    #my-account-button {
+        padding-right: 0.4em;
+    }
+
+    nav a {
+        letter-spacing: 3px;
+        /* Sets padding on top and bottom to 0.5em, right and left to 3% of its containing block */
+        padding: 0.5em 3% 0.5em;
+        font-size: 22px;
+    }
+
+    #nothing-is-here {
+        font-size: 30px;
+    }
+
+    .more-info-btn {
+        margin-left: 20px;
+    }
+
+    #all-routes-btn {
+        margin-top: 2rem;
+    }
+
+    #all-routes-btn {
+        width: 40%;
+    }
+
+    h1 {
+        font-size: 60px;
+        letter-spacing: 1rem;
+    }
+
+    section {
+        font-size: 18px;
+    }
+
+    #second-box {
+        grid-template-columns: 1fr 1fr; /* Sets grid template columns to two equal columns */
+        grid-template-rows: 1fr; /* Sets grid template rows to one row */
+        margin-top: 3%;
+    }
+
+    h2 {
+        font-size: 40px;
+        margin-bottom: 0.4em;
+        letter-spacing: 0.4rem;
+    }
+
+    .article-section {
+        grid-template-columns: 1fr 1fr; /* Sets grid template columns to two equal columns */
+        grid-template-rows: 1fr auto; /* Sets grid template rows to one fraction and auto */
+        margin: auto auto 20px;  /* Centers horizontally */
+        max-width: 992px;
+    }
+
+    /* Targets images inside elements with the class "article-section" */
+    .article-section img {
+        /* Adds border on the right side with var(--light) color, solid style, and 2px width */
+        border-right: var(--light) solid 2px;
+        padding-right: 20px;
+        grid-row: 1/3; /* Spans the image across the first and second rows of the grid */
+    }
+
+    .section-content {
+        margin-top: 0;
+        padding-left: 20px;
+    }
+
+    #menu {
+        padding-bottom: 40px;
+    }
+
+    #nav a{
+        float: left;
+    }
+    #logout a{
+        float: right;
+    }
+    #nav a, #logout a {
+        padding: 1% 5%;
+        width: auto;
+    }
+}
+
+
+/*tablet: landscape, laptop, desktop*/
+/* Media query for screens with a minimum width of 992px */
+@media screen and (min-width: 992px) {
+
+    #above-the-fold{
+        gap: 1em; /* Sets gap between grid items to 1em */
+    }
+
+    i, #my-account-button {
+        font-size: 50px;
+        padding: 0;
+    }
+
+    #my-account-button {
+        padding-right: 0.5em;
+    }
+
+    /* Targets anchor elements inside nav elements */
+    nav a {
+        /* Sets padding on top and bottom to 0.5em, right and left to 5% of its containing block */
+        padding: 0.5em 5% 0.5em;
+    }
+
+    .more-info-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .more-info-img {
+        position: relative;
+        width: 5rem;
+        height: 24rem;
+        overflow: hidden;
+        transition: 0.4s ease-in-out; /* Sets a smooth transition effect */
+        /* Adds a box shadow with  rgba(0, 0, 0, 0.5) color, no horizontal offset, 5px vertical offset of the shadow,
+        and 12px blur radius */
+        box-shadow: rgba(0, 0, 0, 0.5) 0 5px 12px;
+        flex: 0.25;
+    }
+
+    /* Targets images inside elements with the class "more-info-img" */
+    .more-info-img img {
+        height: 24rem;
+        width: auto;
+    }
+
+    /* Targets elements with the class "more-info-img" on hover */
+    .more-info-img:hover {
+        flex: 2; /* Expands flex to 2 */
+        cursor: pointer;
+    }
+
+    /* Targets images inside elements with the class "more-info-img" on hover */
+    .more-info-img:hover img{
+        flex: 2; /* Expands flex to 2 */
+        width: 100%;
+    }
+
+    #all-routes-btn {
+        margin-top: 3em;
+    }
+
+    h1 {
+        font-size: 70px;
+        letter-spacing: 1.3rem;
+    }
+
+    section {
+        font-size: 20px;
+    }
+    #write-for-us input {
+        font-size: 16px;
+    }
+}
+
+/*large desktop, tv, etc*/
+/* Media query for screens with a minimum width of 1200px */
+@media screen and (min-width: 1200px) {
+
+    section {
+        font-size: 22px;
+    }
+
+    #my-account-button {
+        padding-right: 0.6em;
+    }
+
+    body {
+        max-width: 1340px;
+    }
+
+    h1 {
+        letter-spacing: 1.7rem;
+    }
+
+    #write-for-us input {
+        font-size: 18px;
+    }
+}
